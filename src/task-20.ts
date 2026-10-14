@@ -15,7 +15,7 @@ interface Post {
 }
 
 const fetchPosts = async (): Promise<Post[]> => {
-  const response = await axios.get(
+  const response = await axios.get<Post[]>(
     "https://jsonplaceholder.typicode.com/posts",
   );
   return response.data;
@@ -29,12 +29,10 @@ const logThreePosts = async (): Promise<void> => {
   try {
     const posts = await fetchPosts();
 
-    // Отримуємо перші 3 пости за допомогою .slice(0, 3)
     const firstThreePosts = posts.slice(0, 3);
 
     firstThreePosts.forEach((post) => {
-      console.log(post.title);
-      console.log(post.body);
+      console.log({ title: post.title, body: post.body });
     });
   } catch (error) {
     console.error(error);

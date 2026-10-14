@@ -8,6 +8,11 @@
 // age - число
 // isAdmin - boolean
 
+// Завдання:
+
+// Оголосіть інтерфейс Profile.
+// Додайте до функції явну типізацію, що вона повертає проміс, який приводиться до об'єкта профілю.
+
 interface Profile {
   username: string;
   age: number;
@@ -23,8 +28,3 @@ function fetchProfile(): Promise<Profile> {
 }
 
 fetchProfile().then((profile) => console.log(profile));
-
-// Завдання:
-
-// Оголосіть інтерфейс Profile.
-// Додайте до функції явну типізацію, що вона повертає проміс, який приводиться до об'єкта профілю.
